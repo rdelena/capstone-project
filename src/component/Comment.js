@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
-function Comment() {
+const Comment = () => {
   return (
     <div>
       <label>
@@ -13,6 +13,6 @@ function Comment() {
       </Button>
     </div>
   );
-}
+};
 
 export default Comment;
