@@ -1,6 +1,5 @@
 import React from "react";
 import Controls from "../img/controlStock.png";
-import ImageCarousel from "./Carousel";
 
 const Description = () => {
   return (
@@ -8,7 +7,6 @@ const Description = () => {
       <div>
         <h3>Released: TBA</h3>
         <h3>Category: Action/Adventure, Fantasy, Puzzle</h3>
-        <ImageCarousel />
         <h3>Game Description</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.

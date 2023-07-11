@@ -3,8 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import cookie from "cookie";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  // const [loggedIn, setIsLoggedin] = useState(
+  //   localStorage.access ? true : false
+  // );
   const navigate = useNavigate();
 
   const [state, setState] = useState({
@@ -13,24 +17,36 @@ const Login = () => {
   });
 
   const handleTextChange = (e) => {
-    const { name, value } = e.target;
-    setState((prevState) => {
-      return {
-        ...prevState,
-        [name]: value,
-      };
-    });
+    const newLogin = { ...state };
+    newLogin[e.target.name] = e.target.value;
+    setState(newLogin);
   };
 
   const login = (e) => {
     e.preventDefault();
-    document.cookie = cookie.serialize("loggedIn", "true", {
-      maxAge: 60,
-    });
+    axios
+      .post("http://localhost:4001/auth/login", {
+        username: state.username,
+        password: state.password,
+      })
+      .then((res) => {
+        console.log(res);
+        document.cookie = cookie.serialize("loggedIn", "true", {
+          maxAge: 6000,
+        });
+        document.cookie = cookie.serialize("token", res.data.token);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-    navigate("/");
+    navigate("/dashboard");
   };
-
+  // const logout = () => {
+  //   // localStorage.setItem();
+  //   // setIsLoggedin(false);
+  // };
+  console.log(state);
   return (
     <div>
       <Container maxWidth="sm">

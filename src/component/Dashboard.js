@@ -1,9 +1,8 @@
 import React from "react";
 import GameRating from "./GameRating";
-import Comment from "./Comment";
-import ImageCarousel from "./Carousel";
 import Social from "./Social";
 import Description from "./Description";
+import CommentList from "./CommentList";
 
 const Dashboard = () => {
   return (
@@ -30,7 +29,7 @@ const Dashboard = () => {
       <h2>Epics of Gaoryn</h2>
       <GameRating />
       <Description />
-      <Comment />
+      <CommentList currentUserId="1" />
       <Social />
     </div>
   );
