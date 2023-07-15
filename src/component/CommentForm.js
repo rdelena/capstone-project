@@ -40,6 +40,7 @@
 // export default CommentForm;
 
 import React, { useState } from "react";
+import { TextField, Button } from "@mui/material";
 import axios from "axios";
 
 const CommentForm = ({ onCommentSubmit }) => {
@@ -66,18 +67,23 @@ const CommentForm = ({ onCommentSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea
+      <TextField
+        className="comment-form-textarea"
+        multiline
+        rows={4}
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
-        placeholder="Enter your comment"
+        label="Enter your comment"
+        variant="outlined"
       />
-      <input
+      <Button variant="contained">Submit</Button>
+      <Button variant="contained">Cancel</Button>
+      {/* <input
         type="number"
         value={userID}
         onChange={(e) => setUserID(e.target.value)}
         placeholder="User ID"
-      />
-      <button type="submit">Submit</button>
+      /> */}
     </form>
   );
 };

@@ -51,6 +51,7 @@ const Dashboard = () => {
       console.error("Error creating comment:", error);
     }
   };
+
   return (
     <div
       style={{
@@ -88,9 +89,13 @@ const Dashboard = () => {
       <GameRating userID={userID} username={username} />
       <Description />
       <h1>Comment Form</h1>
-      <CommentForm onCommentSubmit={handleCommentSubmit} />
+      <CommentForm
+        onCommentSubmit={handleCommentSubmit}
+        userID={userID}
+        username={username}
+      />
       <h1>Comments</h1>
-      <CommentList />
+      <CommentList userID={userID} username={username} />
       <Social />
     </div>
   );
