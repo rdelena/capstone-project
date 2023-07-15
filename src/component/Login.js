@@ -1,20 +1,17 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { TextField, Button, Container, Typography } from "@mui/material";
 import cookie from "cookie";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  // const [loggedIn, setIsLoggedin] = useState(
-  //   localStorage.access ? true : false
-  // );
   const navigate = useNavigate();
-
   const [state, setState] = useState({
     username: "",
     password: "",
   });
+
+  const [loginStatus, setLoginStatus] = useState("");
 
   const handleTextChange = (e) => {
     const newLogin = { ...state };
@@ -30,23 +27,32 @@ const Login = () => {
         password: state.password,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         document.cookie = cookie.serialize("loggedIn", "true", {
-          maxAge: 6000,
+          maxAge: 18000,
         });
-        document.cookie = cookie.serialize("token", res.data.token);
+        document.cookie = cookie.serialize("token", res.data.token, {
+          maxAge: 18000,
+        });
+        const { username } = res.data;
+        localStorage.setItem("username", username);
+        axios
+          .get(`http://localhost:4001/users/${username}`)
+          .then((response) => {
+            const userID = response.data.id;
+            localStorage.setItem("userID", userID);
+            navigate("/dashboard");
+          })
+          .catch((error) => {
+            console.error("Error retrieving user ID:", error);
+          });
       })
       .catch((err) => {
         console.log(err);
+        setLoginStatus("Wrong Username or Password");
       });
-
-    navigate("/dashboard");
   };
-  // const logout = () => {
-  //   // localStorage.setItem();
-  //   // setIsLoggedin(false);
-  // };
-  console.log(state);
+
   return (
     <div>
       <Container maxWidth="sm">
@@ -77,6 +83,11 @@ const Login = () => {
           >
             Login
           </Button>
+          {loginStatus && (
+            <Typography color="error" style={{ textAlign: "center" }}>
+              {loginStatus}
+            </Typography>
+          )}
         </form>
         <Typography style={{ textAlign: "center" }}>
           Need an Account?

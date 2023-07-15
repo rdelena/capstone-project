@@ -7,10 +7,15 @@ import cookie from "cookie";
 
 const Navigation = () => {
   const navigate = useNavigate();
+
   const logout = () => {
     document.cookie = cookie.serialize("loggedIn", null, {
       maxAge: 0,
     });
+    document.cookie = cookie.serialize("token", null, {
+      maxAge: 0,
+    });
+    localStorage.clear();
     navigate("/login");
   };
 

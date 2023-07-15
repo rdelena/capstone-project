@@ -8,11 +8,11 @@ const ImageCarousel = () => {
   return (
     <Carousel style={{ height: "400px", width: "400px" }}>
       <div>
-        <img src={Image1} />
+        <img src={Image1} alt="MapScreenshot1" />
         <p>Map Overview of the Homestead & Twilight's Anchor</p>
       </div>
       <div>
-        <img src={Image2} />
+        <img src={Image2} alt="MapScroonshot2" />
         <p>Ainzgale Forest</p>
       </div>
     </Carousel>

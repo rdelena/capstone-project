@@ -45,6 +45,7 @@ const Description = () => {
             width: "300",
             margin: "25px",
           }}
+          alt="gamecontrols"
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <p>
