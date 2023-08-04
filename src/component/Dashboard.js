@@ -73,18 +73,11 @@ const Dashboard = () => {
         {username}
       </h2>
 
-      {/* <iframe
-        src="https://i.simmer.io/@Benyji/cool-snowboarder-xtreme"
-        style={{ width: "960px", height: "600px", margin: "50px" }}
-      ></iframe> */}
-      <div
-        style={{
-          width: "960px",
-          height: "600px",
-          backgroundColor: "purple",
-          margin: "50px",
-        }}
-      ></div>
+      <iframe
+        src="https://i.simmer.io/@Benyji/epics-of-gaoryn"
+        style={{ width: "960px", height: "600px" }}
+      ></iframe>
+
       <h2>Epics of Gaoryn</h2>
       <GameRating userID={userID} username={username} />
       <Description />

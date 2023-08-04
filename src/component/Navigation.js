@@ -7,6 +7,7 @@ import cookie from "cookie";
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const storedUsername = localStorage.getItem("username");
 
   const logout = () => {
     document.cookie = cookie.serialize("loggedIn", null, {
@@ -18,6 +19,9 @@ const Navigation = () => {
     localStorage.clear();
     navigate("/login");
   };
+
+  let cookies = cookie.parse(document.cookie);
+  console.log(cookies.loggedIn);
 
   return (
     <AppBar position="relative" className="navBar">
@@ -44,14 +48,18 @@ const Navigation = () => {
                 Home
               </Link>
             </li>
-            <li className="nav-list-item">
-              <Link
-                to="/login"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Login
-              </Link>
-            </li>
+            {cookies.loggedIn ? (
+              <li>{storedUsername}</li>
+            ) : (
+              <li className="nav-list-item">
+                <Link
+                  to="/login"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Login
+                </Link>
+              </li>
+            )}
             <li className="nav-list-item">
               <Link
                 to="/register"

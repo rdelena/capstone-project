@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@mui/material";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import axios from "axios";
+import cookie from "cookie";
 
 const GameRating = ({ userID, username }) => {
   const [gameRate, setGameRate] = useState(0);
@@ -9,6 +10,7 @@ const GameRating = ({ userID, username }) => {
   const [submitStatus, setSubmitStatus] = useState("");
   const [editStatus, setEditStatus] = useState("");
   const [deleteStatus, setDeleteStatus] = useState("");
+  const cookies = cookie.parse(document.cookie);
 
   const handleClick = (value) => {
     setGameRate(value);
@@ -28,6 +30,7 @@ const GameRating = ({ userID, username }) => {
       setEditStatus(null);
       setDeleteStatus(null);
       const response = await axios.post("http://localhost:4001/rate", {
+        headers: { Authorization: `Bearer ${cookies.token}` },
         userID: userID,
         vote: gameRate,
       });
@@ -43,6 +46,7 @@ const GameRating = ({ userID, username }) => {
       setSubmitStatus(null);
       setDeleteStatus(null);
       const response = await axios.put(`http://localhost:4001/rate/${userID}`, {
+        headers: { Authorization: `Bearer ${cookies.token}` },
         userID: userID,
         vote: gameRate,
       });
@@ -60,6 +64,7 @@ const GameRating = ({ userID, username }) => {
       const response = await axios.delete(
         `http://localhost:4001/rate/${userID}`,
         {
+          headers: { Authorization: `Bearer ${cookies.token}` },
           vote: gameRate,
         }
       );
