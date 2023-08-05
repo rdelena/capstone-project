@@ -81,7 +81,7 @@ const GameRating = ({ userID, username }) => {
   };
 
   return (
-    <div>
+    <div className="PressStart2P">
       <div style={{ display: "flex", gap: "15px" }}>
         <h4>Rate the game:</h4>
         {[1, 2, 3, 4, 5].map((rate) => {

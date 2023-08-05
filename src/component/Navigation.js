@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -12,10 +12,29 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import cookie from "cookie";
 import MenuIcon from "@mui/icons-material/Menu";
+import axios from "axios";
 
 const Navigation = () => {
   const navigate = useNavigate();
   const storedUsername = localStorage.getItem("username");
+  const [avatar, setAvatar] = useState("");
+
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      try {
+        const response = await axios.get(
+          `https://robohash.org/${storedUsername}`
+        );
+        setAvatar(response.config.url);
+      } catch (error) {
+        console.error("Error fetching avatar:", error);
+      }
+    };
+
+    if (storedUsername) {
+      fetchAvatar();
+    }
+  }, [storedUsername]);
 
   const logout = () => {
     document.cookie = cookie.serialize("loggedIn", null, {
@@ -38,13 +57,22 @@ const Navigation = () => {
   };
 
   return (
+
     <AppBar position="relative" className="navBar">
       <Container>
         <Toolbar>
+          {avatar && (
+            <img
+              src={avatar}
+              alt="avatar"
+              style={{ height: "50px", width: "50px", borderRadius: "50%" }}
+            />
+          )}
           {storedUsername && (
             <Typography
               variant="h6"
               style={{ flexGrow: "1", color: "white" }}
+              
             >
               {storedUsername}
             </Typography>
@@ -54,7 +82,7 @@ const Navigation = () => {
               to="/dashboard"
               style={{ textDecoration: "none", color: "white" }}
             >
-              <h3 style={{ textAlign: "center" }}>
+              <h3 className="PressStart2P" style={{ textAlign: "center" }}>
                 Capstone Project: Epics of Gaoryn
               </h3>
             </Link>
@@ -73,9 +101,31 @@ const Navigation = () => {
             onClose={handleMenuClose}
           >
             {storedUsername ? (
-              <MenuItem onClick={logout}>Logout</MenuItem>
-            ) : (
+              // If the user is logged in, show the Home and Logout options
               <>
+                <MenuItem>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleMenuClose}
+                  >
+                    Home
+                  </Link>
+                </MenuItem>
+                <MenuItem onClick={logout}>Logout</MenuItem>
+              </>
+            ) : (
+              // If the user is not logged in, show the Home, Login, and Register options
+              <>
+                <MenuItem>
+                  <Link
+                    to="/"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleMenuClose}
+                  >
+                    Home
+                  </Link>
+                </MenuItem>
                 <MenuItem>
                   <Link
                     to="/login"

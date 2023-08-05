@@ -54,6 +54,7 @@ const Dashboard = () => {
 
   return (
     <div
+    className="PressStart2P"
       style={{
         display: "flex",
         justifyContent: "center",

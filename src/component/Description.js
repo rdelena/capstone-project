@@ -3,30 +3,13 @@ import Controls from "../img/GameControls.jpg";
 
 const Description = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div className="PressStart2P" style={{ display: "flex", flexDirection: "column" }}>
       <div>
-        <h3>Released: TBA</h3>
-        <h3>Category: Action/Adventure, Fantasy, Puzzle</h3>
+        <h3>Released: August 3, 2023</h3>
+        <h3>Category: Action/Adventure, Fantasy, Bullet Hell</h3>
         <h3>Game Description</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Necessitatibus repudiandae molestiae, voluptas ratione amet
-          voluptatibus enim suscipit dolores ducimus possimus voluptate illum
-          minus quia quisquam tempora aliquam sit architecto omnis unde? Quis,
-          cum cupiditate. Reiciendis sit at sint necessitatibus sapiente
-          quibusdam rerum veritatis. Corporis dolores eos aperiam quam hic
-          nesciunt natus itaque temporibus minima vel earum sapiente commodi
-          facere, quia quasi, molestias nisi amet at. Velit veritatis harum iure
-          dignissimos sed numquam est facere minus quo voluptate nam, quibusdam
-          et sit commodi similique optio adipisci esse reiciendis! Beatae, sunt
-          nemo iusto dolorum architecto voluptatibus fugiat corrupti. Esse
-          numquam, soluta veritatis debitis, magnam blanditiis assumenda fugit
-          laboriosam vitae, repudiandae exercitationem quae facere perferendis
-          possimus impedit ratione tempora at et itaque magni commodi? Velit
-          suscipit quisquam reprehenderit incidunt quidem eius numquam. Eius
-          nulla perspiciatis laudantium deserunt optio sapiente tenetur officia
-          ad asperiores ipsam provident ex labore, error corrupti sequi
-          voluptatibus praesentium iusto!
+          Journey to the lands of Gaoryn and find the cause of the monster invasion across the land. You play as Signus, the current caretaker of the Temple of the Sun. With his trusted Sword and Bow, battle various fantasy creature like slimes, minotaurs, etc.
         </p>
       </div>
       <h3>How to Play</h3>
@@ -49,16 +32,30 @@ const Description = () => {
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-            veritatis distinctio dolor, debitis cupiditate temporibus dicta iste
-            molestias unde quia soluta eveniet repudiandae facilis id ex magni
-            omnis, natus non?
+            This game uses Keyboard and Mouse haptics. It is meant to be a Web Browser game.
+
+            Keyboard Controls: Movement
+            W: Up
+            A: Left
+            S: Down
+            D: Right
+
+            R: Talk to Signs & NPCs
+
+            Switch Active Weapon:
+            1: Sword
+            2: Bow
+
+            Space Bar: Dash (With Movement Keys)
+
+            Esc: Pause Game
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut,
-            veritatis distinctio dolor, debitis cupiditate temporibus dicta iste
-            molestias unde quia soluta eveniet repudiandae facilis id ex magni
-            omnis, natus non?
+            Mouse controls:
+
+            Right Click: Attack
+            Mouse Cursor: Position Left or Right of the player with the Sword for directional Swing.
+            Aim Omnidirectionally using the Mouse Cursor.
           </p>
         </div>
       </div>

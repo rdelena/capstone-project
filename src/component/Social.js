@@ -5,12 +5,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Social = () => {
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" className="footer">
       <Container>
-        <Stack direction="row" alignItems="center" spacing={5}>
-          <GitHubIcon sx={{ fontSize: 30 }} />
-          <LinkedInIcon sx={{ fontSize: 30 }} />
-        </Stack>
+        <div className="social-icons"> {/* Add the social-icons class */}
+          <GitHubIcon className="social-icon" /> {/* Add the social-icon class */}
+          <LinkedInIcon className="social-icon" /> {/* Add the social-icon class */}
+        </div>
       </Container>
     </AppBar>
   );

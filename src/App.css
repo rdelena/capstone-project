@@ -2,6 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: #f7e7ce;
+
 }
 .appPage {
   /* background-image: url("img/gaoryn_screenshot1.jpg"); */
@@ -19,7 +21,18 @@ body {
   display: flex;
 }
 .navBar {
+background-image: url("img/background2.jpg");}
+.footer {
   background-image: url("img/background2.jpg");
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  font-size: 30px;
+  margin: 0 10px;
 }
 
 .login-form {
@@ -36,6 +49,18 @@ body {
   gap: 25px;
   background-color: white;
 }
+@font-face {
+  font-family: PressStart2P;
+  src: url(../public/PressStart2P-Regular.ttf);
+}
+.PressStart2P {
+  font-family: PressStart2P;
+  font-size: small;
+}
+
+
+
+
 /* Comment CSS */
 .comments {
   margin-top: 20px;
