@@ -1,5 +1,5 @@
 import React from "react";
-import Controls from "../img/controlStock.png";
+import Controls from "../img/GameControls.jpg";
 
 const Description = () => {
   return (

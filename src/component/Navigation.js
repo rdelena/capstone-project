@@ -1,9 +1,17 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Container } from "@mui/material";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import { Link } from "react-router-dom";
-import Image3 from "../img/rdelena-logos_white(edit).png";
 import { useNavigate } from "react-router-dom";
 import cookie from "cookie";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -20,18 +28,27 @@ const Navigation = () => {
     navigate("/login");
   };
 
-  let cookies = cookie.parse(document.cookie);
-  console.log(cookies.loggedIn);
+  const [menuAnchorEl, setMenuAnchorEl] = useState(null);
+
+  const handleMenuOpen = (event) => {
+    setMenuAnchorEl(event.currentTarget);
+  };
+  const handleMenuClose = () => {
+    setMenuAnchorEl(null);
+  };
 
   return (
     <AppBar position="relative" className="navBar">
       <Container>
         <Toolbar>
-          <img
-            src={Image3}
-            style={{ height: "52px", width: "100px" }}
-            alt="logo"
-          />
+          {storedUsername && (
+            <Typography
+              variant="h6"
+              style={{ flexGrow: "1", color: "white" }}
+            >
+              {storedUsername}
+            </Typography>
+          )}
           <Typography variant="h6" style={{ flexGrow: "1", color: "white" }}>
             <Link
               to="/dashboard"
@@ -42,40 +59,44 @@ const Navigation = () => {
               </h3>
             </Link>
           </Typography>
-          <ul className="nav-list">
-            <li className="nav-list-item">
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                Home
-              </Link>
-            </li>
-            {cookies.loggedIn ? (
-              <li>{storedUsername}</li>
+          <IconButton
+            edge="end"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleMenuOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            anchorEl={menuAnchorEl}
+            open={Boolean(menuAnchorEl)}
+            onClose={handleMenuClose}
+          >
+            {storedUsername ? (
+              <MenuItem onClick={logout}>Logout</MenuItem>
             ) : (
-              <li className="nav-list-item">
-                <Link
-                  to="/login"
-                  style={{ textDecoration: "none", color: "white" }}
-                >
-                  Login
-                </Link>
-              </li>
+              <>
+                <MenuItem>
+                  <Link
+                    to="/login"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleMenuClose}
+                  >
+                    Login
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    to="/register"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleMenuClose}
+                  >
+                    Register
+                  </Link>
+                </MenuItem>
+              </>
             )}
-            <li className="nav-list-item">
-              <Link
-                to="/register"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Register
-              </Link>
-            </li>
-            <li
-              className="nav-list-item"
-              onClick={logout}
-              style={{ cursor: "pointer" }}
-            >
-              Log Out
-            </li>
-          </ul>
+          </Menu>
         </Toolbar>
       </Container>
     </AppBar>
