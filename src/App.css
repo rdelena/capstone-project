@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f7e7ce;
-
 }
 .appPage {
   /* background-image: url("img/gaoryn_screenshot1.jpg"); */
@@ -21,7 +20,8 @@ body {
   display: flex;
 }
 .navBar {
-background-image: url("img/background2.jpg");}
+  background-image: url("img/background2.jpg");
+}
 .footer {
   background-image: url("img/background2.jpg");
 }
@@ -57,9 +57,6 @@ background-image: url("img/background2.jpg");}
   font-family: PressStart2P;
   font-size: small;
 }
-
-
-
 
 /* Comment CSS */
 .comments {

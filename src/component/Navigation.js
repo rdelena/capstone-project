@@ -57,7 +57,6 @@ const Navigation = () => {
   };
 
   return (
-
     <AppBar position="relative" className="navBar">
       <Container>
         <Toolbar>
@@ -69,11 +68,7 @@ const Navigation = () => {
             />
           )}
           {storedUsername && (
-            <Typography
-              variant="h6"
-              style={{ flexGrow: "1", color: "white" }}
-              
-            >
+            <Typography variant="h6" style={{ flexGrow: "1", color: "white" }}>
               {storedUsername}
             </Typography>
           )}
@@ -101,7 +96,6 @@ const Navigation = () => {
             onClose={handleMenuClose}
           >
             {storedUsername ? (
-              // If the user is logged in, show the Home and Logout options
               <>
                 <MenuItem>
                   <Link
@@ -112,10 +106,18 @@ const Navigation = () => {
                     Home
                   </Link>
                 </MenuItem>
+                <MenuItem>
+                  <Link
+                    to="/dashboard"
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleMenuClose}
+                  >
+                    Dashboard
+                  </Link>
+                </MenuItem>
                 <MenuItem onClick={logout}>Logout</MenuItem>
               </>
             ) : (
-              // If the user is not logged in, show the Home, Login, and Register options
               <>
                 <MenuItem>
                   <Link
