@@ -22,7 +22,7 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4001/auth/login", {
+      .post("https://gaoryn-server.onrender.com/auth/login", {
         username: state.username,
         password: state.password,
       })
@@ -37,7 +37,7 @@ const Login = () => {
         const { username } = res.data;
         localStorage.setItem("username", username);
         axios
-          .get(`http://localhost:4001/users/${username}`)
+          .get(`https://gaoryn-server.onrender.com/users/${username}`)
           .then((response) => {
             const userID = response.data.id;
             localStorage.setItem("userID", userID);
