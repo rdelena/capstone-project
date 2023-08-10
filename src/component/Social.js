@@ -8,8 +8,8 @@ const Social = () => {
     <AppBar position="relative" className="footer">
       <Container>
         <div className="social-icons">
-          <GitHubIcon className="social-icon" />
-          <LinkedInIcon className="social-icon" />
+          <GitHubIcon className="social-icon" fontSize="32px" />
+          <LinkedInIcon className="social-icon" fontSize="32px" />
         </div>
       </Container>
     </AppBar>

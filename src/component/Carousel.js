@@ -10,43 +10,45 @@ import "../CarouselContainer.css";
 
 const ImageCarousel = () => {
   return (
-    <Carousel showStatus={false} showThumbs={false} autoPlay infiniteLoop>
-      <div className="slide">
-        <img src={Image1} alt="MapScreenshot1" />
-        <div className="slide-content">
-          <h3>Slide 1 Title</h3>
-          <p>Slide 1 Description</p>
+    <div className="carousel-container">
+      <Carousel showStatus={false} showThumbs={false} autoPlay infiniteLoop>
+        <div className="slide">
+          <img src={Image1} alt="MapScreenshot1" />
+          <div className="slide-content">
+            <h3>Slide 1 Title</h3>
+            <p>Slide 1 Description</p>
+          </div>
         </div>
-      </div>
-      <div className="slide">
-        <img src={Image2} alt="MapScroonshot2" />
-        <div className="slide-content">
-          <h3>Slide 2 Title</h3>
-          <p>Slide 2 Description</p>
+        <div className="slide">
+          <img src={Image2} alt="MapScroonshot2" />
+          <div className="slide-content">
+            <h3>Slide 2 Title</h3>
+            <p>Slide 2 Description</p>
+          </div>
         </div>
-      </div>
-      <div className="slide">
-        <img src={Image3} alt="MapScroonshot2" />
-        <div className="slide-content">
-          <h3>Slide 3 Title</h3>
-          <p>Slide 3 Description</p>
+        <div className="slide">
+          <img src={Image3} alt="MapScroonshot2" />
+          <div className="slide-content">
+            <h3>Slide 3 Title</h3>
+            <p>Slide 3 Description</p>
+          </div>
         </div>
-      </div>
-      <div className="slide">
-        <img src={Image4} alt="MapScroonshot2" />
-        <div className="slide-content">
-          <h3>Slide 4 Title</h3>
-          <p>Slide 4 Description</p>
+        <div className="slide">
+          <img src={Image4} alt="MapScroonshot2" />
+          <div className="slide-content">
+            <h3>Slide 4 Title</h3>
+            <p>Slide 4 Description</p>
+          </div>
         </div>
-      </div>
-      <div className="slide">
-        <img src={Image5} alt="MapScroonshot2" />
-        <div className="slide-content">
-          <h3>Slide 5 Title</h3>
-          <p>Slide 5 Description</p>
+        <div className="slide">
+          <img src={Image5} alt="MapScroonshot2" />
+          <div className="slide-content">
+            <h3>Slide 5 Title</h3>
+            <p>Slide 5 Description</p>
+          </div>
         </div>
-      </div>
-    </Carousel>
+      </Carousel>
+    </div>
   );
 };
 

@@ -12,13 +12,7 @@ body {
   height: 100vh;
   background-color: #f7e7ce;
 }
-.nav-list-item {
-  margin: auto 20px;
-}
-.nav-list {
-  list-style: none;
-  display: flex;
-}
+
 .navBar {
   background-image: url("img/background2.jpg");
 }
@@ -40,14 +34,12 @@ body {
   flex-direction: column;
   margin: 50px auto;
   gap: 25px;
-  background-color: white;
 }
 .register-form {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
   gap: 25px;
-  background-color: white;
 }
 @font-face {
   font-family: PressStart2P;
@@ -56,6 +48,27 @@ body {
 .PressStart2P {
   font-family: PressStart2P;
   font-size: small;
+}
+.landingPage {
+  text-align: center;
+  padding: 40px;
+}
+
+.landingPage h1 {
+  margin-bottom: 10px;
+}
+
+.landingPage h2 {
+  margin-bottom: 20px;
+}
+
+.landingPage h3 {
+  margin: 20px 0;
+}
+
+.landingPage a {
+  display: inline-block;
+  margin-top: 10px;
 }
 
 /* Comment CSS */

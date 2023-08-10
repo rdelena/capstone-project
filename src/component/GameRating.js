@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import axios from "axios";
@@ -10,7 +10,28 @@ const GameRating = ({ userID, username }) => {
   const [submitStatus, setSubmitStatus] = useState("");
   const [editStatus, setEditStatus] = useState("");
   const [deleteStatus, setDeleteStatus] = useState("");
+  const [ratings, setRatings] = useState([]);
+  const [averageRating, setAverageRating] = useState(0);
   const cookies = cookie.parse(document.cookie);
+
+  const fetchRatingsAndCalculateAverage = async () => {
+    try {
+      const response = await axios.get("http://localhost:4001/rate");
+      setRatings(response.data);
+      const totalRating = response.data.reduce(
+        (sum, rating) => sum + rating.vote,
+        0
+      );
+      const avgRating = totalRating / response.data.length;
+      setAverageRating(Math.floor(avgRating));
+    } catch (error) {
+      console.error("Error fetching ratings:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRatingsAndCalculateAverage();
+  }, []);
 
   const handleClick = (value) => {
     setGameRate(value);
@@ -29,11 +50,14 @@ const GameRating = ({ userID, username }) => {
     try {
       setEditStatus(null);
       setDeleteStatus(null);
-      const response = await axios.post("http://localhost:4001/rate", {
-        headers: { Authorization: `Bearer ${cookies.token}` },
-        userID: userID,
-        vote: gameRate,
-      });
+      const response = await axios.post(
+        "https://gaoryn-server.onrender.com/rate",
+        {
+          headers: { Authorization: `Bearer ${cookies.token}` },
+          userID: userID,
+          vote: gameRate,
+        }
+      );
       console.log("Vote submitted:", response.data);
       setSubmitStatus(`${username} Rated The Game ${gameRate} Stars`);
     } catch (error) {
@@ -45,11 +69,14 @@ const GameRating = ({ userID, username }) => {
     try {
       setSubmitStatus(null);
       setDeleteStatus(null);
-      const response = await axios.put(`http://localhost:4001/rate/${userID}`, {
-        headers: { Authorization: `Bearer ${cookies.token}` },
-        userID: userID,
-        vote: gameRate,
-      });
+      const response = await axios.put(
+        `https://gaoryn-server.onrender.com/rate/${userID}`,
+        {
+          headers: { Authorization: `Bearer ${cookies.token}` },
+          userID: userID,
+          vote: gameRate,
+        }
+      );
       console.log("Vote updated:", response.data);
       setEditStatus(`${username} Edited Their Vote to ${gameRate} Stars`);
     } catch (error) {
@@ -62,7 +89,7 @@ const GameRating = ({ userID, username }) => {
       setSubmitStatus(null);
       setEditStatus(null);
       const response = await axios.delete(
-        `http://localhost:4001/rate/${userID}`,
+        `https://gaoryn-server.onrender.com/rate/${userID}`,
         {
           headers: { Authorization: `Bearer ${cookies.token}` },
           vote: gameRate,
@@ -82,8 +109,8 @@ const GameRating = ({ userID, username }) => {
 
   return (
     <div className="PressStart2P">
-      <div style={{ display: "flex", gap: "15px" }}>
-        <h4>Rate the game:</h4>
+      <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
+        <h4>Rate:</h4>
         {[1, 2, 3, 4, 5].map((rate) => {
           let icon;
           if (rate <= gameRate || rate <= hover) {
@@ -104,11 +131,12 @@ const GameRating = ({ userID, username }) => {
           );
         })}
       </div>
-      <div>
+      <div style={{ display: "flex", gap: "20px" }}>
         <Button
           type="submit"
           className="login-button"
           variant="contained"
+          color="success"
           onClick={handleGameRateSubmit}
         >
           Submit
@@ -117,6 +145,7 @@ const GameRating = ({ userID, username }) => {
           type="submit"
           className="login-button"
           variant="contained"
+          color="success"
           onClick={handleEdit}
         >
           Edit
@@ -125,17 +154,19 @@ const GameRating = ({ userID, username }) => {
           type="submit"
           className="login-button"
           variant="contained"
+          color="success"
           onClick={handleDelete}
         >
           Delete
         </Button>
       </div>
       <div>
-        <h3 style={{ textAlign: "center" }}>
+        <h5 style={{ textAlign: "center" }}>
+          Average User Rating: {averageRating} Stars ({ratings.length} Votes)
           {submitStatus && <div>{submitStatus}</div>}
           {editStatus && <div>{editStatus}</div>}
           {deleteStatus && <div>{deleteStatus}</div>}
-        </h3>
+        </h5>
       </div>
     </div>
   );

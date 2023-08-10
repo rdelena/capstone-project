@@ -1,6 +1,6 @@
-.carousel-root {
-  height: 500px;
-  padding: 0 20px;
+.carousel-container {
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .slide {
@@ -17,18 +17,19 @@
 
 .slide-content {
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
-  text-align: center;
+  padding: 10px;
+  width: 100%;
 }
 
 .slide-content h3 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .slide-content p {
   font-size: 16px;
+  margin: 0;
 }

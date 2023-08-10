@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import GameRating from "./GameRating";
 import Social from "./Social";
 import Description from "./Description";
+import Controls from "./Controls";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import axios from "axios";
@@ -9,27 +10,11 @@ import axios from "axios";
 const Dashboard = () => {
   const [comments, setComments] = useState([]);
   const [username, setUsername] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [userID, setUserID] = useState(localStorage.getItem("userID"));
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     setUsername(storedUsername);
-
-    const fetchAvatar = async () => {
-      try {
-        const response = await axios.get(
-          `https://robohash.org/${storedUsername}`
-        );
-        setAvatar(response.config.url);
-      } catch (error) {
-        console.error("Error fetching avatar:", error);
-      }
-    };
-
-    if (storedUsername) {
-      fetchAvatar();
-    }
   }, [username]);
 
   const fetchComments = async () => {
@@ -54,42 +39,42 @@ const Dashboard = () => {
 
   return (
     <div
-      className="PressStart2P"
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
+        fontFamily: "PressStart2P",
       }}
     >
-      <h1>Welcome to the Dashboard</h1>
-      <h2>
-        {avatar && (
-          <img
-            src={avatar}
-            alt="robot"
-            style={{ height: "50px", width: "50px", borderRadius: "50%" }}
-          />
-        )}
-        {username}
-      </h2>
-
       <iframe
         src="https://i.simmer.io/@Benyji/epics-of-gaoryn"
-        style={{ width: "960px", height: "600px" }}
+        style={{ width: "960px", height: "600px", margin: "30px" }}
+        title="WebGLGame_Epics_of_Gaoryn"
       ></iframe>
 
-      <h2>Epics of Gaoryn</h2>
-      <GameRating userID={userID} username={username} />
-      <Description />
-      <h1>Comment Form</h1>
+      <h3>Epics of Gaoryn</h3>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "25px 20px",
+          maxWidth: "1100px",
+        }}
+      >
+        <Description />
+        <GameRating userID={userID} username={username} />
+      </div>
+      <Controls />
+      <h4>Write a Comment:</h4>
       <CommentForm
         onCommentSubmit={handleCommentSubmit}
         userID={userID}
         username={username}
       />
-      <h1>Comments</h1>
-      <CommentList userID={userID} username={username} />
+      <h4>Comments</h4>
+      <CommentList userID={userID} username={username} comments={comments} />
       <Social />
     </div>
   );

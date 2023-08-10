@@ -59,7 +59,25 @@ const Navigation = () => {
   return (
     <AppBar position="relative" className="navBar">
       <Container>
-        <Toolbar>
+        <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography
+            variant="h6"
+            style={{
+              flexGrow: "1",
+              color: "white",
+              fontFamily: "PressStart2P",
+            }}
+          >
+            <h5
+              style={{
+                textAlign: "center",
+                fontFamily: "PressStart2P",
+                color: "white",
+              }}
+            >
+              Capstone Project: Epics of Gaoryn
+            </h5>
+          </Typography>
           {avatar && (
             <img
               src={avatar}
@@ -68,25 +86,23 @@ const Navigation = () => {
             />
           )}
           {storedUsername && (
-            <Typography variant="h6" style={{ flexGrow: "1", color: "white" }}>
+            <Typography
+              variant="h6"
+              style={{
+                flexGrow: "1",
+                color: "white",
+                fontFamily: "PressStart2P",
+              }}
+            >
               {storedUsername}
             </Typography>
           )}
-          <Typography variant="h6" style={{ flexGrow: "1", color: "white" }}>
-            <Link
-              to="/dashboard"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <h3 className="PressStart2P" style={{ textAlign: "center" }}>
-                Capstone Project: Epics of Gaoryn
-              </h3>
-            </Link>
-          </Typography>
           <IconButton
             edge="end"
             color="inherit"
             aria-label="menu"
             onClick={handleMenuOpen}
+            style={{ marginLeft: "auto" }}
           >
             <MenuIcon />
           </IconButton>
@@ -100,7 +116,10 @@ const Navigation = () => {
                 <MenuItem>
                   <Link
                     to="/"
-                    style={{ textDecoration: "none", color: "inherit" }}
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                    }}
                     onClick={handleMenuClose}
                   >
                     Home

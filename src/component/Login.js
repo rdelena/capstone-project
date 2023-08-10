@@ -56,6 +56,17 @@ const Login = () => {
   return (
     <div>
       <Container maxWidth="sm">
+        <Typography
+          variant="h5"
+          component="h5"
+          sx={{
+            textAlign: "center",
+            marginTop: "20px",
+            fontFamily: "PressStart2P",
+          }}
+        >
+          Game Login
+        </Typography>
         <form className="login-form" onSubmit={login}>
           <TextField
             required
@@ -80,19 +91,28 @@ const Login = () => {
             className="login-button"
             variant="contained"
             color="success"
+            sx={{
+              fontFamily: "PressStart2P",
+            }}
           >
             Login
           </Button>
           {loginStatus && (
-            <Typography color="error" style={{ textAlign: "center" }}>
+            <Typography
+              color="error"
+              style={{ textAlign: "center", fontFamily: "PressStart2P" }}
+            >
               {loginStatus}
             </Typography>
           )}
         </form>
-        <Typography style={{ textAlign: "center" }}>
+        <Typography style={{ textAlign: "center", fontFamily: "PressStart2P" }}>
           Need an Account?
           <br />
-          <Link to="/register" style={{ color: "black" }}>
+          <Link
+            to="/register"
+            style={{ color: "green", fontFamily: "PressStart2P" }}
+          >
             Sign Up
           </Link>
         </Typography>
