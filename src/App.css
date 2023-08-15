@@ -22,6 +22,7 @@ body {
 .social-icons {
   display: flex;
   justify-content: center;
+  gap: 50px;
 }
 
 .social-icon {

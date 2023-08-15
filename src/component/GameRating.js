@@ -16,7 +16,9 @@ const GameRating = ({ userID, username }) => {
 
   const fetchRatingsAndCalculateAverage = async () => {
     try {
-      const response = await axios.get("http://localhost:4001/rate");
+      const response = await axios.get(
+        "https://gaoryn-server.onrender.com/rate"
+      );
       setRatings(response.data);
       const totalRating = response.data.reduce(
         (sum, rating) => sum + rating.vote,
@@ -53,9 +55,11 @@ const GameRating = ({ userID, username }) => {
       const response = await axios.post(
         "https://gaoryn-server.onrender.com/rate",
         {
-          headers: { Authorization: `Bearer ${cookies.token}` },
           userID: userID,
           vote: gameRate,
+        },
+        {
+          headers: { Authorization: `Bearer ${cookies.token}` },
         }
       );
       console.log("Vote submitted:", response.data);
@@ -72,9 +76,11 @@ const GameRating = ({ userID, username }) => {
       const response = await axios.put(
         `https://gaoryn-server.onrender.com/rate/${userID}`,
         {
-          headers: { Authorization: `Bearer ${cookies.token}` },
           userID: userID,
           vote: gameRate,
+        },
+        {
+          headers: { Authorization: `Bearer ${cookies.token}` },
         }
       );
       console.log("Vote updated:", response.data);
@@ -92,7 +98,6 @@ const GameRating = ({ userID, username }) => {
         `https://gaoryn-server.onrender.com/rate/${userID}`,
         {
           headers: { Authorization: `Bearer ${cookies.token}` },
-          vote: gameRate,
         }
       );
       setDeleteStatus(`${username} Has Deleted Their Vote`);

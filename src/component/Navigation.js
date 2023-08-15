@@ -112,7 +112,7 @@ const Navigation = () => {
             onClose={handleMenuClose}
           >
             {storedUsername ? (
-              <>
+              <div>
                 <MenuItem>
                   <Link
                     to="/"
@@ -135,9 +135,9 @@ const Navigation = () => {
                   </Link>
                 </MenuItem>
                 <MenuItem onClick={logout}>Logout</MenuItem>
-              </>
+              </div>
             ) : (
-              <>
+              <div>
                 <MenuItem>
                   <Link
                     to="/"
@@ -165,7 +165,7 @@ const Navigation = () => {
                     Register
                   </Link>
                 </MenuItem>
-              </>
+              </div>
             )}
           </Menu>
         </Toolbar>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Paper, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 
 const CommentList = ({ userID }) => {
   const [comments, setComments] = useState([]);
@@ -23,19 +23,18 @@ const CommentList = ({ userID }) => {
   return (
     <div>
       {comments.map((comment) => (
-        <Paper
+        <Card
           key={comment.commentID}
           elevation={3}
-          style={{
-            padding: "10px",
-            marginBottom: "10px",
-          }}
+          style={{ marginBottom: "10px" }}
         >
-          <Typography variant="h6" sx={{ color: "success.main" }}>
-            Username: {comment.username}
-          </Typography>
-          <Typography variant="body1">{comment.commentText}</Typography>
-        </Paper>
+          <CardContent>
+            <Typography variant="h6" sx={{ color: "success.main" }}>
+              Username: {comment.username}
+            </Typography>
+            <Typography variant="body1">{comment.commentText}</Typography>
+          </CardContent>
+        </Card>
       ))}
     </div>
   );
