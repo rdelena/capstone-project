@@ -23,7 +23,7 @@ const Registration = () => {
   const register = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4001/auth/signup", {
+      .post("https://gaoryn-server.onrender.com/auth/signup", {
         username: state.username,
         password: state.password,
       })
