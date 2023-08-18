@@ -33,7 +33,7 @@ const GameRating = ({ userID, username }) => {
 
   useEffect(() => {
     fetchRatingsAndCalculateAverage();
-  }, []);
+  }, [ratings]);
 
   const handleClick = (value) => {
     setGameRate(value);
@@ -111,6 +111,10 @@ const GameRating = ({ userID, username }) => {
     filled: "#FFAA1D",
     empty: "#CCCCCC",
   };
+  // console.log(ratings)
+  const testRating = ratings.some((rating) => rating.userID === Number(userID));
+  // console.log(testRating);
+  // console.log(typeof userID);
 
   return (
     <div className="PressStart2P">
@@ -146,24 +150,28 @@ const GameRating = ({ userID, username }) => {
         >
           Submit
         </Button>
-        <Button
-          type="submit"
-          className="login-button"
-          variant="contained"
-          color="success"
-          onClick={handleEdit}
-        >
-          Edit
-        </Button>
-        <Button
-          type="submit"
-          className="login-button"
-          variant="contained"
-          color="success"
-          onClick={handleDelete}
-        >
-          Delete
-        </Button>
+        {testRating ? (
+          <>
+            <Button
+              type="submit"
+              className="login-button"
+              variant="contained"
+              color="success"
+              onClick={handleEdit}
+            >
+              Edit
+            </Button>
+            <Button
+              type="submit"
+              className="login-button"
+              variant="contained"
+              color="success"
+              onClick={handleDelete}
+            >
+              Delete
+            </Button>
+          </>
+        ) : null}
       </div>
       <div>
         <h5 style={{ textAlign: "center" }}>

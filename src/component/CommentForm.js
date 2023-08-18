@@ -18,8 +18,8 @@ const CommentForm = ({ onCommentSubmit, userID }) => {
       );
       if (response.status === 201) {
         onCommentSubmit();
-        setCommentText("");
       }
+      setCommentText("");
     } catch (error) {
       console.error("Error creating comment:", error);
     }

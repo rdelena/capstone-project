@@ -18,7 +18,7 @@ const CommentList = ({ userID }) => {
     };
 
     fetchComments();
-  }, []);
+  }, [comments]);
 
   return (
     <div>

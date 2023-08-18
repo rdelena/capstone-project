@@ -68,7 +68,7 @@ const Navigation = () => {
               fontFamily: "PressStart2P",
             }}
           >
-            <h5
+            <div
               style={{
                 textAlign: "center",
                 fontFamily: "PressStart2P",
@@ -76,7 +76,7 @@ const Navigation = () => {
               }}
             >
               Capstone Project: Epics of Gaoryn
-            </h5>
+            </div>
           </Typography>
           {avatar && (
             <img
