@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import ImageCarousel from "./Carousel";
 import { Link } from "react-router-dom";
 
 const Landing = () => {
+  useEffect(() => {
+    const bootUpServer = async () => {
+      try {
+        const response = await axios.get(
+          "https://gaoryn-server.onrender.com/rate"
+        );
+        console.log("Server boot-up response:", response.data);
+      } catch (error) {
+        console.error("Server boot-up failed:", error);
+      }
+    };
+    bootUpServer();
+  }, []);
+
   return (
     <div className="landingPage">
       <ImageCarousel
