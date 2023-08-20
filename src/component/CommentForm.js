@@ -26,7 +26,7 @@ const CommentForm = ({ onCommentSubmit, userID }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="comment-form" onSubmit={handleSubmit}>
       <TextField
         className="comment-form-textarea"
         multiline
@@ -36,8 +36,14 @@ const CommentForm = ({ onCommentSubmit, userID }) => {
         label="Enter your comment"
         variant="outlined"
         color="success"
+        style={{ background: "white" }}
       />
-      <Button variant="contained" color="success" type="submit">
+      <Button
+        variant="contained"
+        color="success"
+        type="submit"
+        style={{ fontFamily: "PressStart2P" }}
+      >
         Submit
       </Button>
     </form>

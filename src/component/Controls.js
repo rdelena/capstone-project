@@ -4,7 +4,7 @@ import ControlImg from "../img/GameControls.jpg";
 const Controls = () => {
   return (
     <div>
-      <h4>How to Play:</h4>
+      <h4 style={{ textAlign: "center" }}>How to Play:</h4>
       <div
         style={{
           display: "flex",
@@ -23,7 +23,10 @@ const Controls = () => {
           }}
           alt="gamecontrols"
         />
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          className="content-controls"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <section>
             <h5>
               This game is designed for play using a keyboard and mouse in a web

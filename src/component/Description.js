@@ -3,8 +3,8 @@ import React from "react";
 const Description = () => {
   return (
     <div
-      className="PressStart2P"
-      style={{ display: "flex", flexDirection: "column" }}
+      className="content-description"
+      style={{ display: "flex", flexDirection: "column", color: "white" }}
     >
       <section>
         <h4>Released: August 3, 2023</h4>

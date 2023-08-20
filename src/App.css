@@ -2,15 +2,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #f7e7ce;
-}
-.appPage {
-  /* background-image: url("img/gaoryn_screenshot1.jpg"); */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  background-color: #f7e7ce;
+  border: 0;
+  background-image: url("img/background3.png");
 }
 
 .navBar {
@@ -24,7 +17,84 @@ body {
   justify-content: center;
   gap: 50px;
 }
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 600px;
+}
+.content-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 600px;
+}
+.content-dashboard {
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+.content-description {
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(62, 57, 57, 0.7);
+  border-radius: 10px;
+  width: 600px;
+}
+.content-rating {
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(62, 57, 57, 0.7);
+  border-radius: 10px;
+  width: 600px;
+  margin-left: 30px;
+  padding-left: 50px;
+}
 
+.content-rating .button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.content-rating .average-rating {
+  text-align: center;
+}
+.content-rating .star-icon {
+  font-size: 25px;
+}
+
+.content-controls {
+  color: white;
+  font-family: "PressStart2P";
+  padding: 20px;
+  background-color: rgba(62, 57, 57, 0.7);
+  border-radius: 10px;
+  width: 800px;
+  margin-left: 30px;
+}
 .social-icon {
   font-size: 30px;
   margin: 0 10px;
@@ -50,119 +120,18 @@ body {
   font-family: PressStart2P;
   font-size: small;
 }
-.landingPage {
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 40px;
 }
 
-.landingPage h1 {
+.comment-form .comment-form-textarea {
+  width: 600px;
   margin-bottom: 10px;
 }
-
-.landingPage h2 {
-  margin-bottom: 20px;
-}
-
-.landingPage h3 {
-  margin: 20px 0;
-}
-
-.landingPage a {
-  display: inline-block;
+.comment-form button[type="submit"] {
   margin-top: 10px;
-}
-
-/* Comment CSS */
-.comments {
-  margin-top: 20px;
-}
-
-.comments-title {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-
-.comments-container {
-  margin-top: 40px;
-}
-
-.comment-form-title {
-  font-size: 22px;
-}
-
-.comment-form-textarea {
-  width: 100%;
-}
-
-.comment-form-button {
-  font-size: 16px;
-  padding: 8px 16px;
-  background: rgb(59, 130, 246);
-  border-radius: 8px;
-  color: white;
-}
-
-.comment-form-button:hover:enabled {
-  cursor: pointer;
-  background: rgb(37, 99, 235);
-}
-
-.comment-form-button:disabled {
-  opacity: 0.7;
-  cursor: default;
-}
-
-.comment-form-cancel-button {
-  margin-left: 10px;
-}
-
-.comment {
-  display: flex;
-  margin-bottom: 28px;
-}
-
-.comment-image-container {
-  margin-right: 12px;
-}
-
-.comment-image-container img {
-  border-radius: 50px;
-}
-
-.comment-right-part {
-  width: 100%;
-}
-
-.comment-content {
-  display: flex;
-}
-
-.comment-author {
-  margin-right: 8px;
-  font-size: 20px;
-  color: rgb(59, 130, 246);
-}
-
-.comment-text {
-  font-size: 18px;
-}
-
-.comment-actions {
-  display: flex;
-  font-size: 12px;
-  color: rgb(51, 51, 51);
-  cursor: pointer;
-  margin-top: 8px;
-}
-
-.comment-action {
-  margin-right: 8px;
-}
-
-.comment-action:hover {
-  text-decoration: underline;
-}
-
-.replies {
-  margin-top: 20px;
 }

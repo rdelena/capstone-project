@@ -26,13 +26,27 @@ const CommentList = ({ userID }) => {
         <Card
           key={comment.commentID}
           elevation={3}
-          style={{ marginBottom: "10px" }}
+          style={{
+            marginBottom: "10px",
+            background: "rgba(62, 57, 57, 0.7)",
+            color: "white",
+          }}
         >
           <CardContent>
-            <Typography variant="h6" sx={{ color: "success.main" }}>
+            <Typography
+              variant="h6"
+              sx={{ color: "success.main", fontFamily: "PressStart2P" }}
+            >
               Username: {comment.username}
             </Typography>
-            <Typography variant="body1">{comment.commentText}</Typography>
+            <Typography
+              sx={{
+                fontFamily: "PressStart2P",
+              }}
+              variant="body1"
+            >
+              {comment.commentText}
+            </Typography>
           </CardContent>
         </Card>
       ))}

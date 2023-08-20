@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="content-login">
       <Container maxWidth="sm">
         <Typography
           variant="h5"
@@ -76,6 +76,7 @@ const Login = () => {
             label="Username"
             type="text"
             color="success"
+            style={{ background: "white" }}
           />
           <TextField
             required
@@ -85,6 +86,7 @@ const Login = () => {
             label="Password"
             type="password"
             color="success"
+            style={{ background: "white" }}
           />
           <Button
             type="submit"

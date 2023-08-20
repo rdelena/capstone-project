@@ -111,21 +111,19 @@ const GameRating = ({ userID, username }) => {
     filled: "#FFAA1D",
     empty: "#CCCCCC",
   };
-  // console.log(ratings)
+
   const testRating = ratings.some((rating) => rating.userID === Number(userID));
-  // console.log(testRating);
-  // console.log(typeof userID);
 
   return (
-    <div className="PressStart2P">
+    <div className="content-rating">
       <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
         <h4>Rate:</h4>
         {[1, 2, 3, 4, 5].map((rate) => {
           let icon;
           if (rate <= gameRate || rate <= hover) {
-            icon = <FaStar color={rateColors.filled} />;
+            icon = <FaStar className="star-icon" color={rateColors.filled} />;
           } else {
-            icon = <FaRegStar color={rateColors.empty} />;
+            icon = <FaRegStar className="star-icon" color={rateColors.empty} />;
           }
           return (
             <div
@@ -140,13 +138,14 @@ const GameRating = ({ userID, username }) => {
           );
         })}
       </div>
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div className="button-container">
         <Button
           type="submit"
           className="login-button"
           variant="contained"
           color="success"
           onClick={handleGameRateSubmit}
+          style={{ fontFamily: "PressStart2P" }}
         >
           Submit
         </Button>
@@ -158,6 +157,7 @@ const GameRating = ({ userID, username }) => {
               variant="contained"
               color="success"
               onClick={handleEdit}
+              style={{ fontFamily: "PressStart2P" }}
             >
               Edit
             </Button>
@@ -167,13 +167,14 @@ const GameRating = ({ userID, username }) => {
               variant="contained"
               color="success"
               onClick={handleDelete}
+              style={{ fontFamily: "PressStart2P" }}
             >
               Delete
             </Button>
           </>
         ) : null}
       </div>
-      <div>
+      <div className="average-rating">
         <h5 style={{ textAlign: "center" }}>
           Average User Rating: {averageRating} Stars ({ratings.length} Votes)
           {submitStatus && <div>{submitStatus}</div>}

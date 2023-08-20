@@ -63,7 +63,7 @@ const Navigation = () => {
           <Typography
             variant="h6"
             style={{
-              flexGrow: "1",
+              flexGrow: "2",
               color: "white",
               fontFamily: "PressStart2P",
             }}

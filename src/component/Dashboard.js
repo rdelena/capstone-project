@@ -10,7 +10,6 @@ import axios from "axios";
 const Dashboard = () => {
   const [comments, setComments] = useState([]);
   const [username, setUsername] = useState("");
-  const [userID, setUserID] = useState(localStorage.getItem("userID"));
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -39,6 +38,7 @@ const Dashboard = () => {
 
   return (
     <div
+      className="content-dashboard"
       style={{
         display: "flex",
         justifyContent: "center",
@@ -64,17 +64,13 @@ const Dashboard = () => {
         }}
       >
         <Description />
-        <GameRating userID={userID} username={username} />
+        <GameRating username={username} />
       </div>
       <Controls />
       <h4>Write a Comment:</h4>
-      <CommentForm
-        onCommentSubmit={handleCommentSubmit}
-        userID={userID}
-        username={username}
-      />
+      <CommentForm onCommentSubmit={handleCommentSubmit} username={username} />
       <h4>Comments</h4>
-      <CommentList userID={userID} username={username} comments={comments} />
+      <CommentList username={username} comments={comments} />
       <Social />
     </div>
   );

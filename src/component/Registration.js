@@ -39,7 +39,7 @@ const Registration = () => {
 
   console.log(state);
   return (
-    <div>
+    <div className="content">
       <Container maxWidth="sm">
         <Typography
           variant="h5"
@@ -61,6 +61,7 @@ const Registration = () => {
             label="Create a Unique Username"
             type="text"
             varient="standard"
+            style={{ background: "white" }}
           />
           <TextField
             required
@@ -70,6 +71,7 @@ const Registration = () => {
             label="Create a Secure Password"
             type="password"
             varient="standard"
+            style={{ background: "white" }}
           />
           <Button
             type="submit"
@@ -95,6 +97,7 @@ const Registration = () => {
             margin: "15px",
             marginBottom: "30px",
             fontFamily: "PressStart2P",
+            color: "white",
           }}
         >
           For security purposes, kindly refrain from using personal names or
