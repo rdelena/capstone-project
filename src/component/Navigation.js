@@ -44,6 +44,7 @@ const Navigation = () => {
       maxAge: 0,
     });
     localStorage.clear();
+    setAvatar("");
     navigate("/login");
   };
 
@@ -78,7 +79,7 @@ const Navigation = () => {
               Capstone Project: Epics of Gaoryn
             </div>
           </Typography>
-          {avatar && (
+          {storedUsername && avatar && (
             <img
               src={avatar}
               alt="avatar"
