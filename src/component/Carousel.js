@@ -6,7 +6,6 @@ import Image3 from "../img/Town2.jpg";
 import Image4 from "../img/Temple.jpg";
 import Image5 from "../img/SnowMountain.jpg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "../CarouselContainer.css";
 
 const ImageCarousel = () => {
   return (

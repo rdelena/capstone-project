@@ -6,10 +6,12 @@ import Controls from "./Controls";
 import CommentForm from "./CommentForm";
 import CommentList from "./CommentList";
 import axios from "axios";
+import Credits from "./Credits";
 
 const Dashboard = () => {
   const [comments, setComments] = useState([]);
   const [username, setUsername] = useState("");
+  const [userID, setUserID] = useState(localStorage.getItem("userID"));
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -37,16 +39,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div
-      className="content-dashboard"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        fontFamily: "PressStart2P",
-      }}
-    >
+    <div className="content-dashboard">
       <iframe
         src="https://i.simmer.io/@Benyji/epics-of-gaoryn"
         style={{ width: "960px", height: "600px", margin: "30px" }}
@@ -54,23 +47,20 @@ const Dashboard = () => {
       ></iframe>
 
       <h3>Epics of Gaoryn</h3>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "25px 20px",
-          maxWidth: "1100px",
-        }}
-      >
+      <div className="dashboard-container">
         <Description />
-        <GameRating username={username} />
+        <GameRating userID={userID} username={username} />
       </div>
       <Controls />
+      <Credits />
       <h4>Write a Comment:</h4>
-      <CommentForm onCommentSubmit={handleCommentSubmit} username={username} />
+      <CommentForm
+        onCommentSubmit={handleCommentSubmit}
+        userID={userID}
+        username={username}
+      />
       <h4>Comments</h4>
-      <CommentList username={username} comments={comments} />
+      <CommentList username={username} userID={userID} comments={comments} />
       <Social />
     </div>
   );

@@ -2,10 +2,7 @@ import React from "react";
 
 const Description = () => {
   return (
-    <div
-      className="content-description"
-      style={{ display: "flex", flexDirection: "column", color: "white" }}
-    >
+    <div className="content-description">
       <section>
         <h4>Released: August 3, 2023</h4>
         <h4>Category: Action/Adventure, Fantasy, Bullet Hell</h4>

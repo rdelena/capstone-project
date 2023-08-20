@@ -16,9 +16,8 @@ const CommentList = ({ userID }) => {
         console.error("Error fetching comments:", error);
       }
     };
-
     fetchComments();
-  }, [comments]);
+  }, [userID, comments]);
 
   return (
     <div>

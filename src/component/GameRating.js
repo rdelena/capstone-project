@@ -139,16 +139,6 @@ const GameRating = ({ userID, username }) => {
         })}
       </div>
       <div className="button-container">
-        <Button
-          type="submit"
-          className="login-button"
-          variant="contained"
-          color="success"
-          onClick={handleGameRateSubmit}
-          style={{ fontFamily: "PressStart2P" }}
-        >
-          Submit
-        </Button>
         {testRating ? (
           <>
             <Button
@@ -172,7 +162,18 @@ const GameRating = ({ userID, username }) => {
               Delete
             </Button>
           </>
-        ) : null}
+        ) : (
+          <Button
+            type="submit"
+            className="login-button"
+            variant="contained"
+            color="success"
+            onClick={handleGameRateSubmit}
+            style={{ fontFamily: "PressStart2P" }}
+          >
+            Submit
+          </Button>
+        )}
       </div>
       <div className="average-rating">
         <h5 style={{ textAlign: "center" }}>
